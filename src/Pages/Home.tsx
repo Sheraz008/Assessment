@@ -1,5 +1,12 @@
 import React, {useState} from 'react';
-import {SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {
+  Platform,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import ContentTypeBtns from '../Components/ContentTypeBtns';
 import CustomButton from '../Components/CustomButton';
 import HorizontalDivider from '../Components/Devider';
@@ -21,7 +28,13 @@ const Home = () => {
     setCategory(v);
   };
   return (
-    <SafeAreaView style={styles.main}>
+    <SafeAreaView
+      style={[
+        styles.main,
+        {
+          paddingTop: Platform.OS == 'android' ? mvs(30) : 0,
+        },
+      ]}>
       <Header />
       <ScrollView
         showsVerticalScrollIndicator={false}
